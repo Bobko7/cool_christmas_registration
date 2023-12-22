@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*Reset /////////////////////////*/
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        /*Actual Styling //////////////////////////*/
+        ::selection{
+            background: rgb(176, 102, 102);
+        }
+        legend, .gender-caption, .box label, .submit-button{
+            font-weight: bold;
+        }
+
+        .submit-button:hover, .gender-options label:hover{
+            cursor: pointer;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url("https://crabapplephotography.com/wp-content/uploads/2022/08/what-to-wear-santa-photos_0001.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            backdrop-filter: blur(30px);
+            backdrop-filter: brightness(80%);
+            backdrop-filter: grayscale(10%);
+        }
+
+        .wrapper {
+            width: min(80%, 400px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border: 2.5px solid darkred;
+            background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background for the glass effect */
+            backdrop-filter: blur(5px);
+        }
+
+        legend {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: white;
+            font-family: cursive;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .box label {
+            margin-bottom: 5px;
+            font-family: cursive;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+        }
+
+        .box input{
+            background:#E3001E;
+            background: white;
+            background: #E9D2C0;
+            border-radius: 5px;
+            border: 1.3px solid black;
+            color: white;
+            color: black;
+            height: 20px;
+            box-shadow: 0.3px 0.5px 2px 0.7px rgba(0, 0, 0, 0.4);
+            padding-left: 10px;
+        }
+
+        .box input::placeholder{
+            color: white;
+            color: black;
+            font-weight: 600;
+            left: 10px;
+            font-size: 1em;
+        }
+
+        .gender {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .gender label {
+            margin-bottom: 5px;
+            font-family: cursive;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+        }
+
+        .gender-options {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 5px;
+            cursor: pointer;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+        }
+
+        .submit-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: max(100px, 25%);
+            margin-top: 30px;
+            align-self: center;
+            background:#E3001E;
+            color: white;
+            font-weight:600;
+            font-size: 1.2em;
+            padding: 0.45em 4.3em;
+            border: 2px solid black;
+            border-radius: 20px;
+            box-shadow: 1px 1px 7px rgba(0, 0, 0, 1);
+            font-family: cursive;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .submit-button:hover{
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <fieldset class="wrapper">
+        <legend>Registration form</legend>
+        <form action="">
+        <div class="main-info">
+        <div class="box"><label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your full name" autocomplete="off" required>
+        </div>
+        <div class="box"><label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" autocomplete="off" required>
+        </div>
+        <div class="box"><label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" autocomplete="off" required>
+        </div>
+        <div class="box"><label for="phone-number">Phone Number</label>
+            <input type="tel" 
+            inputmode="numeric" 
+            pattern="[0-9]{10}" 
+            oninput="this.value = this.value.replace(/[^0-9]/g, '');" 
+            id="phone-number" 
+            placeholder="Enter your phone number"
+            autocomplete="off" 
+            required>
+        </div>
+        <div class="box"><label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" autocomplete="off" required>
+        </div>
+        <div class="box"><label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Enter your password" autocomplete="off" required>
+        </div>
+        </div>
+        <div class="gender">
+            <label for="gender" class="gender-caption">Gender:</label>
+            <div class="gender-options">
+            <label>
+                <input type="radio" name="gender-option" required>Male
+            </label>
+            <label>
+                <input type="radio" name="gender-option" required>Female
+            </label>
+            <label>
+                <input type="radio" name="gender-option" require>Prefer not to say
+            </label>
+        </div>
+    </div>
+        <button class="submit-button">Submit</button>
+    </form>
+    </fieldset>
+    <script>
+        const pass = document.querySelector("#password");
+        const confirmPass = document.querySelector("#confirm-password");
+        const submitButton = document.getElementsByClassName("submit-button")[0];
+
+        submitButton.addEventListener("click", (event)=>{
+            event.preventDefault();
+            console.log("Clicked");
+            const value1 = pass.value;
+            const value2 = confirmPass.value;
+            if(value1 !== value2){
+                alert("The passwords don't match!");
+            }
+            else{
+                location.reload();
+            }
+        })
+    </script>
+</body>
+</html>
